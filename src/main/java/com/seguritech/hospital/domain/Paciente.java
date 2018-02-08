@@ -5,10 +5,17 @@
  */
 package com.seguritech.hospital.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author Usuario
  */
+
+@Entity
+@Table(name="PERSONAS")
+
 public class Paciente {
     private int id;
 

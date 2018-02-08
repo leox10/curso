@@ -71,17 +71,18 @@ public class PacienteController
         rolRepository.save(rol);
         return ResponseEntity.created(new URI("/rol/" + rol.getId())).body(rol);
     }
+    */
     
     @PutMapping("/rol")
     public ResponseEntity<Rol> update(@RequestBody Rol rol) throws URISyntaxException {
-        if (rol.getId() == null) {
+        /*if (rol.getId() == null) {
             return ResponseEntity.badRequest().header("X-error", "El id no debe ser null").body(null);
-        }
+        }*/
         rolRepository.save(rol);
         return ResponseEntity.ok().body(rol);
     }
     
-    
+    /*
     @DeleteMapping("/rol/{id}")
     public ResponseEntity<Rol> deleteRol(@PathVariable("id") Long id) {
         rolRepository.delete(id);
