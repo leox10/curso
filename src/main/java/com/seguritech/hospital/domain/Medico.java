@@ -5,7 +5,11 @@
  */
 package com.seguritech.hospital.domain;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -13,16 +17,26 @@ import javax.persistence.Id;
  *
  * @author Usuario
  */
-public class Medico 
+@Entity
+@DiscriminatorValue(value="MEDICO")
+public class Medico extends Persona
 {
-    @Id
-    @GeneratedValue
-    @Column(name="persona_id")
-    private long id;
-    private String usuario;
-    private String nombre;
-    @Column(name="e_mail")
-    private String mail;
+    private Long especialidad_id;
+    @Column(name="especialidad_id")
+    /**
+     * @return the especialidad_id
+     */
+    public Long getEspecialidad_id() {
+        return especialidad_id;
+    }
+
+    /**
+     * @param especialidad_id the especialidad_id to set
+     */
+    public void setEspecialidad_id(Long especialidad_id) {
+        this.especialidad_id = especialidad_id;
+    }
+    
     
     
 }

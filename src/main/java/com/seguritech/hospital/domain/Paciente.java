@@ -5,6 +5,8 @@
  */
 package com.seguritech.hospital.domain;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -14,23 +16,24 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name="PERSONAS")
+@DiscriminatorValue(value="PACIENTE")
 
-public class Paciente {
-    private int id;
-
-    /**
-     * @return the id
-     */
-    public int getId() {
-        return id;
+public class Paciente extends Persona
+{
+    @Column(name="obra_social_id")
+    private Long obra_social_id;
+    
+     public Long getObra_social_id() {
+        return obra_social_id;
     }
 
     /**
-     * @param id the id to set
+     * @param obra_social_id the obra_social_id to set
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setObra_social_id(Long obra_social_id) {
+        this.obra_social_id = obra_social_id;
     }
+    
+    
     
 }
