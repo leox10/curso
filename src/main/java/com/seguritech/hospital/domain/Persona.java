@@ -35,7 +35,7 @@ public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="persona_id")
-    private long id;
+    private Long id;
     private String usuario;
     private String nombre;
     @Column(name="e_mail")

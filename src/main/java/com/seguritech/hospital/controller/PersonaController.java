@@ -27,13 +27,15 @@ public class PersonaController {
     
     
    @GetMapping(value = "/persona")
-    public List<Persona> findAllPersonas() {
-        List<Persona> usuarios = personaRepository.findAll();
-        return usuarios;
+    public List<Persona> findAllPersonas() 
+    {
+        List<Persona> personas = personaRepository.findAll();
+        return personas;
     }
     
-     @GetMapping(value = "/medico")
-    public List<Medico> findAllMedicos() {
+    @GetMapping(value = "/medico")
+    public List<Medico> findAllMedicos() 
+    {
         return MedicoRepository.findAll();
     }
     
