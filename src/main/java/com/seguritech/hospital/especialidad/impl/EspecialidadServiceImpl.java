@@ -6,10 +6,10 @@
 package com.seguritech.hospital.especialidad.impl;
 
 import com.seguritech.hospital.domain.Especialidad;
-import com.seguritech.hospital.repository.especialidadrepository;
 import com.seguritech.hospital.service.EspecialidadService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.seguritech.hospital.repository.EspecialidadRepository;
 
 /**
  *
@@ -18,8 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class EspecialidadServiceImpl implements EspecialidadService{
-    private final especialidadrepository especialidadRepository;
-    public EspecialidadServiceImpl(especialidadrepository especialidadRepository)
+    private final EspecialidadRepository especialidadRepository;
+    public EspecialidadServiceImpl(EspecialidadRepository especialidadRepository)
     {
         this.especialidadRepository = especialidadRepository;
     }

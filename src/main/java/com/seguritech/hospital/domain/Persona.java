@@ -5,7 +5,6 @@
  */
 package com.seguritech.hospital.domain;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -38,6 +37,7 @@ public class Persona implements Serializable {
     @Column(name="PERSONA_ID")
     private Long id;
     private String usuario;
+    private String clave;
     private String nombre;
     @Column(name="e_mail")
     private String mail;
@@ -144,6 +144,20 @@ public class Persona implements Serializable {
      */
     public void setFechaC(Date fechaC) {
         this.fechaC = fechaC;
+    }
+
+    /**
+     * @return the clave
+     */
+    public String getClave() {
+        return clave;
+    }
+
+    /**
+     * @param clave the clave to set
+     */
+    public void setClave(String clave) {
+        this.clave = clave;
     }
     
 }

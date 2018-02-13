@@ -6,7 +6,6 @@
 package com.seguritech.hospital.controller;
 
 import com.seguritech.hospital.domain.Especialidad;
-import com.seguritech.hospital.repository.especialidadrepository;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -19,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import com.seguritech.hospital.repository.EspecialidadRepository;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 /**
  *
@@ -29,8 +31,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class EspecialidadController 
 {
     @Autowired
-    private  especialidadrepository especialidadRepository;
+    private  EspecialidadRepository especialidadRepository;
     
+    //Metodo para listar especialidades
     @RequestMapping(value="/especialidad", method=RequestMethod.GET)
     public List<Especialidad> listAll() 
     {
@@ -39,6 +42,7 @@ public class EspecialidadController
        return especialidades;
     }
     
+    //Metodo para buscar una especialidad por Id
      @GetMapping("/especialidad/{id}")
     public ResponseEntity<Especialidad> getRol(@PathVariable("id") Long id) 
     {
@@ -50,16 +54,29 @@ public class EspecialidadController
         return ResponseEntity.ok(esp);
     }
     
-    @PostMapping("/especialidad")
+    //Metodo para crear una especialidad
+    @PostMapping("/especialidad/add")
     public ResponseEntity<Especialidad> create(@RequestBody Especialidad especialidad) throws URISyntaxException 
-    {
-        /*if (rol.getId() != null) {
-            return ResponseEntity.badRequest().header("X-error", "El id debe ser null").body(null);
-        }*/
-            
+    {      
         especialidadRepository.save(especialidad);
         return ResponseEntity.created(new URI("/especialidad/" + especialidad.getId())).body(especialidad);
     }
+    
+    //Metodo para actualizar un especialidad por Id
+    @PutMapping("/especialidad/update")
+    public ResponseEntity<Especialidad> update(@RequestBody Especialidad especialidad) throws URISyntaxException {
+        especialidadRepository.save(especialidad);
+        return ResponseEntity.ok().body(especialidad);
+    }
+    
+    //Metodo para borrar una especialidad por Id
+    @DeleteMapping("/especialidad/delete/{id}")
+    public ResponseEntity<Especialidad> deleteEspecialidad(@PathVariable("id") Long id) { 
+        especialidadRepository.delete(id);
+        return ResponseEntity.ok().header("Success", "La especialidad con el id: "+id+" ha sido eliminado correctamente").build();
+    }
+    
+    
     
     
     

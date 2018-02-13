@@ -5,7 +5,7 @@
  */
 package com.seguritech.hospital.repository;
 
-import com.seguritech.hospital.domain.Rol;
+import com.seguritech.hospital.domain.Especialidad;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -13,9 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *
  * @author Usuario
  */
-public interface rolrepository extends JpaRepository<Rol, Long>
+public interface EspecialidadRepository extends JpaRepository<Especialidad, Long>
 {
-    
-   // List<Rol> findbyDescript();
-    
+    //List<Especialidad> findbyDescript();
 }
