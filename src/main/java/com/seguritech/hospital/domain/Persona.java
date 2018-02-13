@@ -6,6 +6,7 @@
 package com.seguritech.hospital.domain;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
@@ -29,12 +30,12 @@ import org.hibernate.annotations.Subselect;
 @Table(name="PERSONAS")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "tipo_persona", discriminatorType = DiscriminatorType.STRING)
-@Subselect("select * from personas where estado = 'HABILITADO'")
+//@Subselect("select * from personas where estado = 'HABILITADO'")
 
-public class Persona {
+public class Persona implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="persona_id")
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    @Column(name="PERSONA_ID")
     private Long id;
     private String usuario;
     private String nombre;
@@ -50,14 +51,14 @@ public class Persona {
     /**
      * @return the id
      */
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

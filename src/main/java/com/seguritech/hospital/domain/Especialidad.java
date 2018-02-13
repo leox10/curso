@@ -5,6 +5,7 @@
  */
 package com.seguritech.hospital.domain;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +21,7 @@ import javax.persistence.Table;
 
 @Table(name="ESPECIALIDADES")
 
-public class Especialidad 
+public class Especialidad implements Serializable 
 {
     @Id
     @GeneratedValue

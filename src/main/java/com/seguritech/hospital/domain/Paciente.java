@@ -5,6 +5,7 @@
  */
 package com.seguritech.hospital.domain;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -18,21 +19,26 @@ import javax.persistence.Table;
 @Entity
 @DiscriminatorValue(value="PACIENTE")
 
-public class Paciente extends Persona
+public class Paciente extends Persona implements Serializable
 {
     @Column(name="obra_social_id")
-    private Long obra_social_id;
-    
-     public Long getObra_social_id() {
-        return obra_social_id;
+    private Long obraSocialId;
+
+    /**
+     * @return the obraSocialId
+     */
+    public Long getObraSocialId() {
+        return obraSocialId;
     }
 
     /**
-     * @param obra_social_id the obra_social_id to set
+     * @param obraSocialId the obraSocialId to set
      */
-    public void setObra_social_id(Long obra_social_id) {
-        this.obra_social_id = obra_social_id;
+    public void setObraSocialId(Long obraSocialId) {
+        this.obraSocialId = obraSocialId;
     }
+    
+     
     
     
     

@@ -5,6 +5,7 @@
  */
 package com.seguritech.hospital.domain;
 
+import java.io.Serializable;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -14,6 +15,6 @@ import javax.persistence.Entity;
  */
 @Entity
 @DiscriminatorValue(value="ADMINISTRADOR")
-public class Adminstrador extends Persona{
+public class Administrador extends Persona implements Serializable{
     
 }

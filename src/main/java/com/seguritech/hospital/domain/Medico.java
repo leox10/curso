@@ -6,6 +6,7 @@
 package com.seguritech.hospital.domain;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
@@ -19,23 +20,26 @@ import javax.persistence.Id;
  */
 @Entity
 @DiscriminatorValue(value="MEDICO")
-public class Medico extends Persona
+public class Medico extends Persona implements Serializable
 {
-    private Long especialidad_id;
+    
     @Column(name="especialidad_id")
+    private Long especialidadId;
+
     /**
-     * @return the especialidad_id
+     * @return the especialidadId
      */
-    public Long getEspecialidad_id() {
-        return especialidad_id;
+    public Long getEspecialidadId() {
+        return especialidadId;
     }
 
     /**
-     * @param especialidad_id the especialidad_id to set
+     * @param especialidadId the especialidadId to set
      */
-    public void setEspecialidad_id(Long especialidad_id) {
-        this.especialidad_id = especialidad_id;
+    public void setEspecialidadId(Long especialidadId) {
+        this.especialidadId = especialidadId;
     }
+    
     
     
     

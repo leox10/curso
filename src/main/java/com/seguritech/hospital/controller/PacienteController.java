@@ -5,95 +5,57 @@
  */
 package com.seguritech.hospital.controller;
 
-import static com.fasterxml.jackson.databind.jsonFormatVisitors.JsonValueFormat.URI;
+import com.seguritech.hospital.domain.Medico;
 import com.seguritech.hospital.domain.Paciente;
-import com.seguritech.hospital.domain.Rol;
-import com.seguritech.hospital.repository.rolrepository;
+import com.seguritech.hospital.repository.PacienteRepository;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author Usuario
+ * @author Leo
  */
-
 @RestController
-
 public class PacienteController 
 {
-    @Autowired
-    private rolrepository rolRepository;
-    
-   @RequestMapping(value="/paciente")
-    public Paciente findOne()
-   {
-       Paciente p = new Paciente();
-       p.setId(1);
-       return p;
-   }
-    
-    @RequestMapping(value="/rol", method=RequestMethod.GET)
-    public List<Rol> listAll() {
-        List<Rol> roles = rolRepository.findAll();
-        System.out.println(roles.size());
-        return roles;
+  @Autowired 
+  private PacienteRepository Pacienterepository;
+  
+  @GetMapping(value = "/paciente")
+    public List<Paciente> findAllPersonas() 
+    {
+        List<Paciente> pacientes = Pacienterepository.findAll();
+        return pacientes;
     }
     
-    //metodo para buscar por url http://localhost:8080/rol/2
-    @GetMapping("/rol/{id}")
-    public ResponseEntity<Rol> getRol(@PathVariable("id") Long id) {
-        Rol rol = rolRepository.findOne(id);
-        if (rol == null) {
-            return ResponseEntity.notFound().build();
+    @GetMapping("/paciente/{id}")
+    public ResponseEntity<Paciente> getMedico(@PathVariable("id") Long id) 
+    {
+        Paciente pac = Pacienterepository.findOne(id);
+        if (pac == null) 
+        {
+            return ResponseEntity.notFound().header("X-error", "No se encontro el paciente con el Id: "+id).build();
         }
-        return ResponseEntity.ok(rol);
+        return ResponseEntity.ok(pac);
     }
     
-    /*
-    @PostMapping("/rol")
-    public ResponseEntity<Rol> create(@RequestBody Rol rol) throws URISyntaxException {
-        if (rol.getId() != null) {
+    //Metodo para agregar un nuevo paciente
+    @PostMapping("/paciente/add")
+    public ResponseEntity<Paciente> create(@RequestBody Paciente paciente) throws URISyntaxException 
+    {
+        if (paciente.getId() != null) {
             return ResponseEntity.badRequest().header("X-error", "El id debe ser null").body(null);
-        }
-            
-        rolRepository.save(rol);
-        return ResponseEntity.created(new URI("/rol/" + rol.getId())).body(rol);
-    }
-    */
-    
-    @PutMapping("/rol")
-    public ResponseEntity<Rol> update(@RequestBody Rol rol) throws URISyntaxException {
-        /*if (rol.getId() == null) {
-            return ResponseEntity.badRequest().header("X-error", "El id no debe ser null").body(null);
-        }*/
-        rolRepository.save(rol);
-        return ResponseEntity.ok().body(rol);
+        }  
+        Pacienterepository.save(paciente);
+        return ResponseEntity.created(new URI("/paciente/" + paciente.getId())).body(paciente);
     }
     
-    /*
-    @DeleteMapping("/rol/{id}")
-    public ResponseEntity<Rol> deleteRol(@PathVariable("id") Long id) {
-        rolRepository.delete(id);
-        return ResponseEntity.ok().build();
-    }
-
-*/
-
-   
-    
-    
-    
-   
 }
