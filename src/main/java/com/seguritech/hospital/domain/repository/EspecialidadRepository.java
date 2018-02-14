@@ -15,6 +15,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface EspecialidadRepository extends JpaRepository<Especialidad, Long>
 {
-     @Override
-     List<Especialidad> findAll();
+     
+     //List<Especialidad> findByDescription(String descripcion);
 }

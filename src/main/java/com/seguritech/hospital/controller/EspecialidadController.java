@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.seguritech.hospital.domain.repository.EspecialidadRepository;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -76,6 +77,13 @@ public class EspecialidadController
         return ResponseEntity.ok().header("Success", "La especialidad con el id: "+id+" ha sido eliminado correctamente").build();
     }
     
+    /*
+    @GetMapping(value="/describe")
+    public List<Especialidad> listAll(String descripcion) 
+    {
+       List<Especialidad> especialidades = especialidadRepository.findByDescription(descripcion);
+       return especialidades;
+    }*/
     
     
     

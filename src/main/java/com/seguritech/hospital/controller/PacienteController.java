@@ -28,8 +28,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PacienteController 
 {
-  @Autowired 
-  private PacienteRepository Pacienterepository;
+  
+  private final PacienteRepository Pacienterepository;
+  
+  public PacienteController (PacienteRepository Pacienterepository)
+  {
+      this.Pacienterepository=Pacienterepository;
+  }
   
   //Metodo para consultar listado de pacientes
   @GetMapping(value = "/paciente")
