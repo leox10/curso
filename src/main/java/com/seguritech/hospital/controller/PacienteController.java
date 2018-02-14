@@ -7,7 +7,7 @@ package com.seguritech.hospital.controller;
 
 import com.seguritech.hospital.domain.Medico;
 import com.seguritech.hospital.domain.Paciente;
-import com.seguritech.hospital.repository.PacienteRepository;
+import com.seguritech.hospital.domain.repository.PacienteRepository;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -78,5 +78,7 @@ public class PacienteController
         Pacienterepository.delete(id);
         return ResponseEntity.ok().header("Success", "El paciente con el id: "+id+" ha sido eliminado correctamente").build();
     }
+    
+  
     
 }

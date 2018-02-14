@@ -5,11 +5,8 @@
  */
 package com.seguritech.hospital.controller;
 
-
-import com.seguritech.hospital.domain.Persona;
-import com.seguritech.hospital.domain.repository.PersonaRepository;
-import java.net.URI;
-import java.net.URISyntaxException;
+import com.seguritech.hospital.domain.Obra;
+import com.seguritech.hospital.domain.repository.ObraRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,23 +14,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author Usuario
+ * @author Leo
  */
 @RestController
-public class PersonaController 
+public class ObraController 
 {
     @Autowired
-    private PersonaRepository personaRepository;
-
+    private ObraRepository obraRepository;
     
-    
-   @GetMapping(value = "/persona")
-    public List<Persona> findAllPersonas() 
+    //Metodo que devuelve el listado de obras sociales
+    @GetMapping(value = "/obra")
+    public List<Obra> findAllTurnos() 
     {
-        List<Persona> personas = personaRepository.findAll();
-        return personas;
+        List<Obra> obras = obraRepository.findAll();
+        return obras;
     }
-    
-    
     
 }

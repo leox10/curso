@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableJpaRepositories("com.seguritech.hospital.repository")
+@EnableJpaRepositories("com.seguritech.hospital.domain.repository")
 @EnableTransactionManagement
 public class HospitalApplication {
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.seguritech.hospital.repository;
+package com.seguritech.hospital.domain.repository;
 
 import com.seguritech.hospital.domain.Especialidad;
 import java.util.List;
@@ -15,5 +15,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface EspecialidadRepository extends JpaRepository<Especialidad, Long>
 {
-    //List<Especialidad> findbyDescript();
+     @Override
+     List<Especialidad> findAll();
 }

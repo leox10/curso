@@ -9,6 +9,9 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -21,7 +24,8 @@ import javax.persistence.Table;
 
 public class Paciente extends Persona implements Serializable
 {
-    @Column(name="obra_social_id")
+    //@ManyToOne(fetch=FetchType.EAGER)
+   // @JoinColumn(name="obra_social_id")
     private Long obraSocialId;
 
     /**
@@ -37,6 +41,8 @@ public class Paciente extends Persona implements Serializable
     public void setObraSocialId(Long obraSocialId) {
         this.obraSocialId = obraSocialId;
     }
+
+    
     
      
     

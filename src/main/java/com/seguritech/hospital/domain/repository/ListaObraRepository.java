@@ -3,15 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.seguritech.hospital.repository;
+package com.seguritech.hospital.domain.repository;
 
-import com.seguritech.hospital.domain.Turno;
+import com.seguritech.hospital.domain.ListaObra;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * @author Usuario
+ * @author Leo
  */
-public interface TurnoService extends JpaRepository<Turno, Long>{
+public interface ListaObraRepository extends JpaRepository<ListaObra, Long> {
     
 }

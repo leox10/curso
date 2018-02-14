@@ -6,51 +6,34 @@
 package com.seguritech.hospital.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import org.hibernate.annotations.Subselect;
 
 /**
  *
- * @author Usuario
+ * @author Leo
  */
 @Entity
-@Table(name="PERSONAS")
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo_persona", discriminatorType = DiscriminatorType.STRING)
-//@Subselect("select * from personas where estado = 'HABILITADO'")
-
-public abstract class Persona implements Serializable {
+@Table(name="Lista")
+public class ListaObra implements Serializable 
+{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="PERSONA_ID")
     private Long id;
+    
     private String usuario;
     private String clave;
     private String nombre;
-    @Column(name="e_mail")
-    private String mail;
+    
+    @Column(name="Obra_Social")
+    private String obraS;
     private String telefono;
     private String estado;
-    
-    @Column(name="fecha_creacion")
-    @Temporal(TemporalType.DATE)
-    private Date fechaC;
-    
 
     /**
      * @return the id
@@ -81,6 +64,20 @@ public abstract class Persona implements Serializable {
     }
 
     /**
+     * @return the clave
+     */
+    public String getClave() {
+        return clave;
+    }
+
+    /**
+     * @param clave the clave to set
+     */
+    public void setClave(String clave) {
+        this.clave = clave;
+    }
+
+    /**
      * @return the nombre
      */
     public String getNombre() {
@@ -95,17 +92,17 @@ public abstract class Persona implements Serializable {
     }
 
     /**
-     * @return the mail
+     * @return the obraS
      */
-    public String getMail() {
-        return mail;
+    public String getObraS() {
+        return obraS;
     }
 
     /**
-     * @param mail the mail to set
+     * @param obraS the obraS to set
      */
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setObraS(String obraS) {
+        this.obraS = obraS;
     }
 
     /**
@@ -135,34 +132,7 @@ public abstract class Persona implements Serializable {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    /**
-     * @return the fechaC
-     */
-    public Date getFechaC() {
-        return fechaC;
-    }
-
-    /**
-     * @param fechaC the fechaC to set
-     */
-    public void setFechaC(Date fechaC) {
-        this.fechaC = fechaC;
-    }
-
-    /**
-     * @return the clave
-     */
-    public String getClave() {
-        return clave;
-    }
-
-    /**
-     * @param clave the clave to set
-     */
-    public void setClave(String clave) {
-        this.clave = clave;
-    }
+    
     
     
 }

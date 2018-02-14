@@ -6,7 +6,7 @@
 package com.seguritech.hospital.controller;
 
 import com.seguritech.hospital.domain.Medico;
-import com.seguritech.hospital.repository.Medicorepository;
+import com.seguritech.hospital.domain.repository.Medicorepository;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;

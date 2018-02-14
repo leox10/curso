@@ -9,7 +9,7 @@ import com.seguritech.hospital.domain.Especialidad;
 import com.seguritech.hospital.service.EspecialidadService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.seguritech.hospital.repository.EspecialidadRepository;
+import com.seguritech.hospital.domain.repository.EspecialidadRepository;
 
 /**
  *
